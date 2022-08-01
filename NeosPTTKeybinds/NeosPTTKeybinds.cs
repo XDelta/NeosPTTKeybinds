@@ -31,9 +31,6 @@ namespace NeosPTTKeybinds {
 		public override void OnEngineInit() {
 			Config = GetConfiguration();
 			Config.Save(true);
-			if (Config.GetValue(disableMuteKey)) {
-				Debug("Config appears to work, found the value from disableMuteKey");
-			}
 			Harmony harmony = new Harmony("tk.deltawolf.NeosPTTKeybinds");
 			harmony.PatchAll();
 			Msg("PTT keybinds patched!");
