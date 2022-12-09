@@ -11,8 +11,8 @@ A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https
 
 | Config Option     | Default | Description |
 | ------------------ | ------- | ----------- |
-| `disableMuteKey ` | `true` | Disables the Mute toggle keybind M |
-| `disablePTTKeys ` | `true` | Disables the PTT keybind Mouse5 and V |
-| `remapKeys  ` | `false` | If `true` will disable the default PTT/Mute keys listed above and use the custom Keys defined below |
-| `customMuteKey ` | 109 (M) | Set custom Mute keybind, set to 0 to disable |
-| `customPTTKey ` | 118 (V) | Set custom PTT keybind, set to 0 to disable |
+| `disableMuteKey` | `true` | Disables the Mute toggle keybind M |
+| `disablePTTKeys` | `true` | Disables the PTT keybind Mouse5 and V |
+| `remapKeys` | `false` | If `true` will disable the default PTT/Mute keys listed above and use the custom Keys defined below |
+| `customMuteKey` | 109 (M) | Set custom Mute keybind, set to 0 to disable |
+| `customPTTKey` | 118 (V) | Set custom PTT keybind, set to 0 to disable |
