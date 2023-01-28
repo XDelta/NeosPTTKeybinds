@@ -31,7 +31,7 @@ namespace NeosPTTKeybinds {
 		public override void OnEngineInit() {
 			Config = GetConfiguration();
 			Config.Save(true);
-			Harmony harmony = new Harmony("tk.deltawolf.NeosPTTKeybinds");
+			Harmony harmony = new Harmony("net.deltawolf.NeosPTTKeybinds");
 			harmony.PatchAll();
 			Msg("PTT keybinds patched!");
 		}
