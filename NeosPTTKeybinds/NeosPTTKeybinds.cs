@@ -7,7 +7,7 @@ namespace NeosPTTKeybinds {
 	public class NeosPTTKeybinds : NeosMod {
 		public override string Name => "NeosPTTKeybinds";
 		public override string Author => "Delta";
-		public override string Version => "1.2.0";
+		public override string Version => "1.2.1";
 		public override string Link => "https://github.com/XDelta/NeosPTTKeybinds/";
 
 		//TODO keycode config for rebinding activation keys
