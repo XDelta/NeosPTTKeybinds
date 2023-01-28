@@ -1,6 +1,6 @@
 # NeosPTTKeybinds
 
-A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https://neos.com/) that can disable or remap the Push to Talk / Mute keybinds on Mouse5, M, and V. Set remapped keys using [NeosModSettings](https://github.com/badhaloninja/NeosModSettings) in-game or manually with the numbers from the [Key Code Reference](https://github.com/XDelta/NeosPTTKeybinds/blob/main/KeyCodeReference.txt). Requires NeosModLoader 1.8.0+
+A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https://neos.com/) that can disable or remap the Push to Talk / Mute keybinds on Mouse5, M, and V. Set remapped keys using [NeosModSettings](https://github.com/badhaloninja/NeosModSettings) in-game or manually with the numbers from the [Key Code Reference](https://github.com/XDelta/NeosPTTKeybinds/blob/main/KeyCodeReference.txt). Additionally allows setting keybinds to set your current Voicemode. Requires NeosModLoader 1.8.0+
 
 ## Installation
 1. Install [NeosModLoader](https://github.com/zkxs/NeosModLoader).
