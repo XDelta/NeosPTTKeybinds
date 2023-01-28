@@ -26,19 +26,22 @@ namespace NeosPTTKeybinds {
 		[AutoRegisterConfigKey]
 		private static readonly ModConfigurationKey<Key> customPTTKey = new ModConfigurationKey<Key>("customPTTKey", "Set custom PTT keybind, set to 0 (None) to disable (requires restart)", () => Key.V);
 
-        [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<Key> WhisperKey = new ModConfigurationKey<Key>("WhisperKey", "Set Whisper Mode keybind", () => Key.None);
+		[AutoRegisterConfigKey]
+		private static readonly ModConfigurationKey<Key> MuteKey = new ModConfigurationKey<Key>("MuteKey", "Set Mute Mode keybind", () => Key.None);
 
-        [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<Key> NormalKey = new ModConfigurationKey<Key>("NormalKey", "Set Normal Mode keybind", () => Key.None);
+		[AutoRegisterConfigKey]
+		private static readonly ModConfigurationKey<Key> WhisperKey = new ModConfigurationKey<Key>("WhisperKey", "Set Whisper Mode keybind", () => Key.None);
 
-        [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<Key> ShoutKey = new ModConfigurationKey<Key>("ShoutKey", "Set Shout Mode keybind", () => Key.None);
+		[AutoRegisterConfigKey]
+		private static readonly ModConfigurationKey<Key> NormalKey = new ModConfigurationKey<Key>("NormalKey", "Set Normal Mode keybind", () => Key.None);
 
-        [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<Key> BroadcastKey = new ModConfigurationKey<Key>("BroadcastKey", "Set Broadcast Mode keybind", () => Key.None);
+		[AutoRegisterConfigKey]
+		private static readonly ModConfigurationKey<Key> ShoutKey = new ModConfigurationKey<Key>("ShoutKey", "Set Shout Mode keybind", () => Key.None);
 
-        private static ModConfiguration Config;
+		[AutoRegisterConfigKey]
+		private static readonly ModConfigurationKey<Key> BroadcastKey = new ModConfigurationKey<Key>("BroadcastKey", "Set Broadcast Mode keybind", () => Key.None);
+
+		private static ModConfiguration Config;
 
 		public override void OnEngineInit() {
 			Config = GetConfiguration();
@@ -83,38 +86,47 @@ namespace NeosPTTKeybinds {
 				}
 			}
 		}
+
 		[HarmonyPatch(typeof(VoiceModeSync), "OnCommonUpdate")]
 		class VoiceMode_Patch {
+			static bool focus;
 			static void Postfix(VoiceModeSync __instance) {
-				if (__instance.InputInterface.GetKeyDown(Config.GetValue(WhisperKey))) {
+				focus = __instance.LocalUser.HasActiveFocus() || Engine.Current.WorldManager.FocusedWorld.LocalUser.HasActiveFocus();
+				if (__instance.InputInterface.GetKeyDown(Config.GetValue(MuteKey)) && !focus) {
+					__instance.FocusedWorldVoiceMode.Value = VoiceMode.Mute;
+					__instance.GlobalMute.Value = true;
+					Debug("Mute Keybind pressed: " + Config.GetValue(MuteKey));
+				}
+				if (__instance.InputInterface.GetKeyDown(Config.GetValue(WhisperKey)) && !focus) {
 					if (VoiceMode.Whisper <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 						__instance.FocusedWorldVoiceMode.Value = VoiceMode.Whisper;
 						__instance.GlobalMute.Value = false;
-                        Debug("Whisper Keybind pressed: " + Config.GetValue(WhisperKey));
-                    }
-                }
-                if (__instance.InputInterface.GetKeyDown(Config.GetValue(NormalKey))) {
-                    if (VoiceMode.Normal <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
-                        __instance.FocusedWorldVoiceMode.Value = VoiceMode.Normal;
-                        __instance.GlobalMute.Value = false;
-                        Debug("Normal Keybind pressed: " + Config.GetValue(WhisperKey));
-                    }
-                }
-                if (__instance.InputInterface.GetKeyDown(Config.GetValue(ShoutKey))) {
-                    if (VoiceMode.Shout <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
-                        __instance.FocusedWorldVoiceMode.Value = VoiceMode.Shout;
-                        __instance.GlobalMute.Value = false;
-                        Debug("Shout Keybind pressed: " + Config.GetValue(ShoutKey));
-                    }
-                }
-                if (__instance.InputInterface.GetKeyDown(Config.GetValue(BroadcastKey))) {
-                    if (VoiceMode.Broadcast <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
-                        __instance.FocusedWorldVoiceMode.Value = VoiceMode.Broadcast;
-                        __instance.GlobalMute.Value = false;
-                        Debug("Broadcast Keybind pressed: " + Config.GetValue(BroadcastKey));
-                    }
-                }
-            }
+						Debug("Whisper Keybind pressed: " + Config.GetValue(WhisperKey));
+					}
+				}
+				if (__instance.InputInterface.GetKeyDown(Config.GetValue(NormalKey)) && !focus ) {
+					if (VoiceMode.Normal <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
+						__instance.FocusedWorldVoiceMode.Value = VoiceMode.Normal;
+						__instance.GlobalMute.Value = false;
+						Debug("Normal Keybind pressed: " + Config.GetValue(WhisperKey));
+					}
+				}
+				if (__instance.InputInterface.GetKeyDown(Config.GetValue(ShoutKey)) && !focus) {
+					if (VoiceMode.Shout <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
+						__instance.FocusedWorldVoiceMode.Value = VoiceMode.Shout;
+						__instance.GlobalMute.Value = false;
+						Debug("Shout Keybind pressed: " + Config.GetValue(ShoutKey));
+					}
+				}
+				if (__instance.InputInterface.GetKeyDown(Config.GetValue(BroadcastKey)) && !focus) {
+					if (VoiceMode.Broadcast <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
+						__instance.FocusedWorldVoiceMode.Value = VoiceMode.Broadcast;
+						__instance.GlobalMute.Value = false;
+						Debug("Broadcast Keybind pressed: " + Config.GetValue(BroadcastKey));
+					}
+				}
+			}
+		}
 		}
     }
 }
