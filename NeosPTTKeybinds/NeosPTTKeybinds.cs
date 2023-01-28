@@ -21,10 +21,10 @@ namespace NeosPTTKeybinds {
 		private static readonly ModConfigurationKey<bool> remapKeys = new ModConfigurationKey<bool>("remapKeys", "Enable to remap keys, will disable all default PTT keys", () => false);
 
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<Key> customMuteKey = new ModConfigurationKey<Key>("customMuteKey", "Set custom Mute keybind, set to 0 to disable", () => Key.M);
+		private static readonly ModConfigurationKey<Key> customMuteKey = new ModConfigurationKey<Key>("customMuteKey", "Set custom Mute keybind, set to 0 (None) to disable", () => Key.M);
 
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<Key> customPTTKey = new ModConfigurationKey<Key>("customPTTKey", "Set custom PTT keybind, set to 0 to disable", () => Key.V);
+		private static readonly ModConfigurationKey<Key> customPTTKey = new ModConfigurationKey<Key>("customPTTKey", "Set custom PTT keybind, set to 0 (None) to disable", () => Key.V);
 
 		private static ModConfiguration Config;
 
