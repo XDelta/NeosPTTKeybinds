@@ -56,8 +56,7 @@ namespace NeosPTTKeybinds {
 		class KeyBind_Patch {
 			public static void Postfix(KeyboardAndMouseBindingGenerator __instance, InputGroup group) {
 				try {
-					if (group is GlobalActions) {
-						var globalActions = ((GlobalActions) group);
+					if (group is GlobalActions globalActions) {
 						if (Config.GetValue(remapKeys)) {
 							globalActions.ToggleMute.ClearBindings();
 							globalActions.ActivateTalk.ClearBindings();
