@@ -12,19 +12,19 @@ namespace NeosPTTKeybinds {
 
 		//TODO keycode config for rebinding activation keys
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<bool> disableMuteKey = new ModConfigurationKey<bool>("disableMuteKey", "Disable the Mute toggle keybind M", () => true);
+		private static readonly ModConfigurationKey<bool> disableMuteKey = new ModConfigurationKey<bool>("disableMuteKey", "Disable the Mute toggle keybind M (requires restart)", () => false); //change to false? specify changes require restart
 
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<bool> disablePTTKeys = new ModConfigurationKey<bool>("disableMousePTTKey", "Disable the PTT keybind Mouse5 and V", () => true);
+		private static readonly ModConfigurationKey<bool> disablePTTKeys = new ModConfigurationKey<bool>("disableMousePTTKey", "Disable the PTT keybind Mouse5 and V (requires restart)", () => false); //change to false? specify changes require restart
 
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<bool> remapKeys = new ModConfigurationKey<bool>("remapKeys", "Enable to remap keys, will disable all default PTT keys", () => false);
+		private static readonly ModConfigurationKey<bool> remapKeys = new ModConfigurationKey<bool>("remapKeys", "Enable to remap keys, will disable all default PTT keys (requires restart)", () => false);
 
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<Key> customMuteKey = new ModConfigurationKey<Key>("customMuteKey", "Set custom Mute keybind, set to 0 (None) to disable", () => Key.M);
+		private static readonly ModConfigurationKey<Key> customMuteKey = new ModConfigurationKey<Key>("customMuteKey", "Set custom Mute (toggle) keybind, set to 0 (None) to disable (requires restart)", () => Key.M);
 
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<Key> customPTTKey = new ModConfigurationKey<Key>("customPTTKey", "Set custom PTT keybind, set to 0 (None) to disable", () => Key.V);
+		private static readonly ModConfigurationKey<Key> customPTTKey = new ModConfigurationKey<Key>("customPTTKey", "Set custom PTT keybind, set to 0 (None) to disable (requires restart)", () => Key.V);
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<Key> WhisperKey = new ModConfigurationKey<Key>("WhisperKey", "Set Whisper Mode keybind", () => Key.None);
