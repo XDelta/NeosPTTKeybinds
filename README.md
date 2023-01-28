@@ -16,3 +16,7 @@ A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https
 | `remapKeys` | `false` | If `true` will disable the default PTT/Mute keys listed above and use the custom Keys defined below |
 | `customMuteKey` | 109 (M) | Set custom Mute keybind, set to 0 to disable |
 | `customPTTKey` | 118 (V) | Set custom PTT keybind, set to 0 to disable |
+| `WhisperKey` | 0 (None) | Set Whisper Mode keybind |
+| `NormalKey` | 0 (None) | Set Normal Mode keybind |
+| `ShoutKey` | 0 (None) | Set Shout Mode keybind |
+| `BroadcastKey` | 0 (None) | Set Broadcast Mode keybind |
