@@ -99,28 +99,28 @@ namespace NeosPTTKeybinds {
 				if (__instance.InputInterface.GetKeyDown(Config.GetValue(WhisperKey)) && !focus) {
 					if (VoiceMode.Whisper <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 						__instance.FocusedWorldVoiceMode.Value = VoiceMode.Whisper;
-						__instance.GlobalMute.Value = false;
-						Debug("Whisper Keybind pressed: " + Config.GetValue(WhisperKey));
+                        __instance.InputInterface.IsMuted = false;
+                        Debug("Whisper Keybind pressed: " + Config.GetValue(WhisperKey));
 					}
 				}
 				if (__instance.InputInterface.GetKeyDown(Config.GetValue(NormalKey)) && !focus ) {
 					if (VoiceMode.Normal <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 						__instance.FocusedWorldVoiceMode.Value = VoiceMode.Normal;
-						__instance.GlobalMute.Value = false;
-						Debug("Normal Keybind pressed: " + Config.GetValue(WhisperKey));
+                        __instance.InputInterface.IsMuted = false;
+						Debug("Normal Keybind pressed: " + Config.GetValue(NormalKey));
 					}
 				}
 				if (__instance.InputInterface.GetKeyDown(Config.GetValue(ShoutKey)) && !focus) {
 					if (VoiceMode.Shout <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 						__instance.FocusedWorldVoiceMode.Value = VoiceMode.Shout;
-						__instance.GlobalMute.Value = false;
+                        __instance.InputInterface.IsMuted = false;
 						Debug("Shout Keybind pressed: " + Config.GetValue(ShoutKey));
 					}
 				}
 				if (__instance.InputInterface.GetKeyDown(Config.GetValue(BroadcastKey)) && !focus) {
 					if (VoiceMode.Broadcast <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 						__instance.FocusedWorldVoiceMode.Value = VoiceMode.Broadcast;
-						__instance.GlobalMute.Value = false;
+                        __instance.InputInterface.IsMuted = false;
 						Debug("Broadcast Keybind pressed: " + Config.GetValue(BroadcastKey));
 					}
 				}
