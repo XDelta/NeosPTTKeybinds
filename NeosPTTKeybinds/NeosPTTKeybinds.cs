@@ -92,8 +92,7 @@ namespace NeosPTTKeybinds {
 			static void Postfix(VoiceModeSync __instance) {
 				focus = __instance.LocalUser.HasActiveFocus() || Engine.Current.WorldManager.FocusedWorld.LocalUser.HasActiveFocus();
 				if (__instance.InputInterface.GetKeyDown(Config.GetValue(MuteKey)) && !focus) {
-					__instance.FocusedWorldVoiceMode.Value = VoiceMode.Mute;
-					__instance.GlobalMute.Value = true;
+                    __instance.InputInterface.IsMuted = true;
 					Debug("Mute Keybind pressed: " + Config.GetValue(MuteKey));
 				}
 				if (__instance.InputInterface.GetKeyDown(Config.GetValue(WhisperKey)) && !focus) {
