@@ -7,15 +7,15 @@ namespace NeosPTTKeybinds {
 	public class NeosPTTKeybinds : NeosMod {
 		public override string Name => "NeosPTTKeybinds";
 		public override string Author => "Delta";
-		public override string Version => "1.2.1";
+		public override string Version => "1.2.2";
 		public override string Link => "https://github.com/XDelta/NeosPTTKeybinds/";
 
 		//TODO keycode config for rebinding activation keys
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<bool> disableMuteKey = new ModConfigurationKey<bool>("disableMuteKey", "Disable the Mute toggle keybind M (requires restart)", () => false); //change to false? specify changes require restart
+		private static readonly ModConfigurationKey<bool> disableMuteKey = new ModConfigurationKey<bool>("disableMuteKey", "Disable the Mute toggle keybind M (requires restart)", () => false);
 
 		[AutoRegisterConfigKey]
-		private static readonly ModConfigurationKey<bool> disablePTTKeys = new ModConfigurationKey<bool>("disableMousePTTKey", "Disable the PTT keybind Mouse5 and V (requires restart)", () => false); //change to false? specify changes require restart
+		private static readonly ModConfigurationKey<bool> disablePTTKeys = new ModConfigurationKey<bool>("disableMousePTTKey", "Disable the PTT keybind Mouse5 and V (requires restart)", () => false);
 
 		[AutoRegisterConfigKey]
 		private static readonly ModConfigurationKey<bool> remapKeys = new ModConfigurationKey<bool>("remapKeys", "Enable to remap keys, will disable all default PTT keys (requires restart)", () => false);
